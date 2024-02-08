@@ -50,6 +50,7 @@ class WisataController extends Controller
         }
 
 
+
         Wisata::create($data);
     }
 

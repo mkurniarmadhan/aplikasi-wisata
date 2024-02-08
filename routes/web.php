@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
+// ini dapat di akses kalo sudah login
 Route::middleware(['auth'])->group(function () {
 
 
@@ -43,17 +43,17 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::get('/', [HomePageController::class, 'index'])->name('homepage.index');
-Route::get('/show/{wisata}', [HomePageController::class, 'show'])->name('homepage.show');
 
 
-// AUTH
-
-
-Route::middleware(['guest'])->group(function () {
-
+// yang belum login saja
+Route::middleware(['guest'])->group(function () { // cek login . kalo sudah diarahkan ke halaman utaman (/)
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('doLogin', [AuthController::class, 'doLogin'])->name('doLogin');
     Route::get('register', [AuthController::class, 'register'])->name('register');
     Route::post('doregister', [AuthController::class, 'doRegister'])->name('doRegister');
 });
+
+
+// ini siapapun bisa akses
+Route::get('/', [HomePageController::class, 'index'])->name('homepage.index');
+Route::get('/show/{wisata}', [HomePageController::class, 'show'])->name('homepage.show');

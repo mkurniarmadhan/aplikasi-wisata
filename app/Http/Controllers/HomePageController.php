@@ -14,10 +14,7 @@ class HomePageController extends Controller
 
     public function index()
     {
-
-
         $wisatas = Wisata::all();
-
         return view('homepage.index', compact('wisatas'));
     }
 
