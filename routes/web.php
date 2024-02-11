@@ -34,6 +34,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('pesanan', [AdminController::class, 'pesanan'])->name('pesanan');
         Route::get('pesanan/{order}', [AdminController::class, 'pesananShow'])->name('pesanan.show');
         Route::get('konfirmasiPembayaran/{order}', [AdminController::class, 'konfirmasiPembayaran'])->name('konfirmasiPembayaran');
+        Route::get('rekening', [AdminController::class, 'rekening'])->name('rekening.index');
+        Route::get('rekening/{rekening}', [AdminController::class, 'rekening_detail'])->name('rekening.show');
+
+
 
         Route::resource('wisata', WisataController::class)->parameters([
             'wisata' => 'wisata'

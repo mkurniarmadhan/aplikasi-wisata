@@ -26,6 +26,7 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
@@ -60,7 +61,15 @@ class AuthController extends Controller
             'password' => ['required', 'confirmed'],
         ]);
 
-        $u =    User::create($credentials);
+
+
+        $u =    User::create([
+            'namaLengkap' => $request->namaLengkap,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'alamat' => $request->alamat,
+            'password' => bcrypt($request->password),
+        ]);
 
 
         Auth::login($u);

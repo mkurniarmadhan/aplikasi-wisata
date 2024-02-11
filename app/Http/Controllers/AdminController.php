@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bank;
 use App\Models\Order;
+use App\Models\Rekening;
 use App\Models\Tiket;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
@@ -38,6 +40,7 @@ class AdminController extends Controller
     }
 
 
+
     // method untuk konfimasi pembayaran 
     public function konfirmasiPembayaran(Order $order)
     {
@@ -53,5 +56,19 @@ class AdminController extends Controller
         $order->save();
 
         return back();
+    }
+
+
+
+    public function rekening()
+    {
+
+        $data_rekening = Rekening::all();
+        return view('admin.rekening.index', compact('data_rekening'));
+    }
+    public function rekening_detail(Rekening $rekening)
+    {
+
+        return view('admin.rekening.index', compact('rekening'));
     }
 }
