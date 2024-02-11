@@ -9,13 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-
-
+    // menampilkan halaman login
     public function login()
     {
 
         return view('auth.login');
     }
+
+
+    // prorses login
 
     public function doLogin(Request $request)
     {
@@ -37,11 +39,15 @@ class AuthController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
     }
+
+    // menampilkan halaman daftar
     public function register()
     {
 
         return view('auth.register');
     }
+
+    // prorses daftar
     public function doRegister(Request $request)
     {
 
@@ -61,6 +67,8 @@ class AuthController extends Controller
 
         return to_route('homepage.index');
     }
+
+    // proses keluar
 
     public function logout()
     {

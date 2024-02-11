@@ -20,6 +20,8 @@ class AdminController extends Controller
         return view('admin.index', compact('pemesanLunas', 'wisata'));
     }
 
+    // method untuk menampilkan data pesanan
+
     public function pesanan()
     {
 
@@ -27,12 +29,16 @@ class AdminController extends Controller
         return view('admin.pemesanan.index', compact('orders'));
     }
 
+
+    // method untuk menampilkan data detail pesanan
     public function pesananShow(Order $order)
     {
 
         return view('admin.pemesanan.show', compact('order'));
     }
 
+
+    // method untuk konfimasi pembayaran 
     public function konfirmasiPembayaran(Order $order)
     {
 
