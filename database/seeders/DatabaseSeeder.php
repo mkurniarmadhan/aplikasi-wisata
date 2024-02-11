@@ -15,10 +15,18 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::create([
             'namaLengkap' => 'admin',
-            'email' => 'admin@admin.com',
+            'email' => 'admin@gmail.com',
             'phone' => fake('id_ID')->phoneNumber(),
             'alamat' => fake('id_ID')->address(),
-            'password' => bcrypt('password'),
+            'password' => bcrypt('admin'),
+            'is_admin' => true
+        ]);
+        \App\Models\User::create([
+            'namaLengkap' => 'pelanggan',
+            'email' => 'pelanggan@gmail.com',
+            'phone' => fake('id_ID')->phoneNumber(),
+            'alamat' => fake('id_ID')->address(),
+            'password' => bcrypt('pelanggan'),
             'is_admin' => true
         ]);
         \App\Models\User::create([
