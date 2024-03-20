@@ -4,12 +4,18 @@ use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\HomePageController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 
 
+
+Route::get('setup', function () {
+
+    Artisan::call('key:generate');
+});
 
 // ini dapat di akses kalo sudah login
 Route::middleware(['auth'])->group(function () {
